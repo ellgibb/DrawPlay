@@ -9,6 +9,8 @@ public class Cat {
 	// eyes will be about 1/4 from top of head and 1/4 from left
 	private static final int EYE_Y = HEAD_DIMENSION/4;
 	private static final int EYE_X = HEAD_DIMENSION/4;
+	private static final int IRIS_Y = HEAD_DIMENSION/4+15;
+	private static final int IRIS_X = HEAD_DIMENSION/4+3;
 	private static final int PUPIL_Y = HEAD_DIMENSION/4+20;
 	private static final int PUPIL_X = HEAD_DIMENSION/4+7;
 	private static final int EYE_SEPARATION = HEAD_DIMENSION/3;
@@ -17,12 +19,15 @@ public class Cat {
 	private static final int EYE_WIDTH = 20;
 	private static final int PUPIL_HEIGHT = 10;
 	private static final int PUPIL_WIDTH = 10;
+	private static final int IRIS_HEIGHT = 17;
+	private static final int IRIS_WIDTH = 13;
 	// pick mouth height, width is based on head dimension
 	private static final int MOUTH_HEIGHT = 10;
 	private static final int MOUTH_WIDTH = HEAD_DIMENSION/4;
 	// mouth starts about 40% from left edge of head
 	private static final int MOUTH_X = HEAD_DIMENSION/5 *3;
 	private static final int MOUTH_Y = HEAD_DIMENSION/5 * 3;
+	
 	
 	// draw will render the Cat on the Graphics object
 	public void draw(Graphics g, int catX, int catY)
@@ -40,6 +45,13 @@ public class Cat {
 		g2.fillOval(x, y, EYE_WIDTH, EYE_HEIGHT);
 		x += EYE_SEPARATION;
 		g2.fillOval(x, y, EYE_WIDTH, EYE_HEIGHT);
+		//adding iris to the eye
+		g2.setColor(Color.green);
+		x = catX + IRIS_X; 
+		y = catY + IRIS_Y;
+		g2.fillOval(x, y, IRIS_WIDTH, IRIS_HEIGHT);
+		x += EYE_SEPARATION;
+		g2.fillOval(x, y, IRIS_WIDTH, IRIS_HEIGHT);
 		//adding pupils to the eyes
 		g2.setColor(Color.black);
 		x = catX + PUPIL_X; 
